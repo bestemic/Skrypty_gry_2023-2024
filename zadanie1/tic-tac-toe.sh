@@ -110,6 +110,13 @@ play_with_computer() {
         else
             switch_players
         fi
+
+        if [[ $PLAYER == "O" ]]; then
+            read -p "Enter 'SAVE' to save game: " save
+            if [[ "$save" == "SAVE" || "$save" == "save" ]]; then
+                save_game "COMPUTER"
+            fi
+        fi
     done
 }
 
@@ -138,14 +145,89 @@ play_with_player() {
             else
                 switch_players
             fi
+
+            read -p "Enter 'SAVE' to save game: " save
+            if [[ "$save" == "SAVE" || "$save" == "save" ]]; then
+                save_game "PLAYER"
+            fi
         else
             echo "Invalid choice."
         fi
     done
 }
 
+save_game() {
+    save_dir="$(dirname $0)/saves"
+    save_file="$save_dir/game_$(date +"%Y%m%d_%H%M").save"
+
+    if [ ! -d "$save_dir" ]; then
+        mkdir -p "$save_dir"
+    fi
+
+    echo "${BOARD[@]}" >"$save_file"
+    echo "$PLAYER" >>"$save_file"
+    echo "$1" >>"$save_file"
+
+    echo "Game saved as $(basename "$save_file")"
+    exit 0
+}
+
 load_save() {
-    echo "Not implemented"
+
+    if [ ! -d "$(dirname $0)/saves" ]; then
+        echo "No saved games found."
+    else
+        saved_games=()
+        for file in "$(dirname $0)/saves"/*; do
+            if [ -f "$file" ]; then
+                filename=$(basename "$file")
+                saved_games+=("$filename")
+            fi
+        done
+
+        if [ -z "$saved_games" ]; then
+            echo "No saved games found."
+        else
+            echo "Available saved games:"
+            i=0
+            for saved_game in "${saved_games[@]}"; do
+                echo "$((++i)). $saved_game"
+            done
+            echo
+
+            while true; do
+                read -p "File to load number: " save_number
+
+                if [ $save_number -ge 1 ] && [ $save_number -le $i ]; then
+                    saved_game="${saved_games[$save_number - 1]}"
+                    save_path="$(dirname $0)/saves/$saved_game"
+
+                    count=1
+                    while IFS= read -r line; do
+                        case $count in
+                        1) board="$line" ;;
+                        2) current_player="$line" ;;
+                        3) game_mode="$line" ;;
+                        esac
+                        ((count++))
+                    done <$save_path
+
+                    BOARD=($board)
+                    PLAYER=$current_player
+
+                    if [ "$game_mode" = "PLAYER" ]; then
+                        play_with_player
+                    else
+                        play_with_computer
+                    fi
+
+                    break
+                else
+                    echo "Invalid save number"
+                fi
+            done
+        fi
+    fi
 }
 
 print_menu() {
@@ -177,4 +259,5 @@ print_menu() {
     esac
 }
 
+clear
 print_menu
