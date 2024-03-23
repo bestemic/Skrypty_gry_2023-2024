@@ -1,0 +1,37 @@
+version: "3.1"
+
+rules:
+  - rule: Say goodbye anytime the user says goodbye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - rule: Say hello anytime the user says hello
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+  - rule: Return when restaurant is open anytime user asks
+    steps:
+      - intent: list_hours
+      - action: action_list_hours
+
+  - rule: Return if restaurant is open now anytime user asks
+    steps:
+      - intent: is_open
+      - action: action_is_open
+
+  - rule: Return opening hours for provided day anytime user asks
+    steps:
+      - intent: open_hours
+      - action: action_open_hours
+
+  - rule: Return opening hours anytime user asks
+    steps:
+      - intent: open_on
+      - action: action_open_on
+
+  - rule: Return menu anytime user asks
+    steps:
+      - intent: menu
+      - action: action_menu

@@ -1,0 +1,74 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - actions
+  - list_hours
+  - is_open
+  - open_hours
+  - open_on
+  - menu
+
+actions:
+  - action_list_hours
+  - action_is_open
+  - action_open_hours
+  - action_open_on
+  - action_menu
+
+entities:
+  - day
+  - hour
+
+slots:
+  day:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: day
+  hour:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: hour
+
+responses:
+  utter_greet:
+    - text: "Welcome to our restaurant! How may I assist you today?"
+    - text: "Hello there! What I can do for you?"
+    - text: "Good day! What can I do for you?"
+    - text: "Hi! Welcome in Restauratino! How may I help you?"
+
+  utter_goodbye:
+    - text: "Bye"
+    - text: "Goodbye"
+    - text: "Goodbye! Have a great day!"
+    - text: "Bye. Come back soon!"
+    - text: "Thank you for dining with us! See you next time!"
+
+  utter_actions:
+    - text: |
+        You can ask me about:
+        - Opening hours/days of the week
+        - Menu items
+        - Placing an order
+        - Adding extras to your order
+    - text: |
+        I can answer about:
+        - Operating hours and days of operation
+        - Available menu selections
+        - Making an order
+        - Customizing your order with additional requests or modifications
+    - text: |
+        Here's what I can assist you with:
+        - Providing details on when we're open
+        - Showing our menu
+        - Placing an order
+        - Customizing your order with additional requests
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

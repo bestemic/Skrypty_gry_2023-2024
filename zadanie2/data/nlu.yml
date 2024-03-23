@@ -1,0 +1,197 @@
+version: "3.1"
+
+nlu:
+  - intent: greet
+    examples: |
+      - hey
+      - hello
+      - hi
+      - hello there
+      - good morning
+      - good evening
+      - moin
+      - hey there
+      - let's go
+      - hey dude
+      - goodmorning
+      - goodevening
+      - good afternoon
+
+  - intent: goodbye
+    examples: |
+      - cu
+      - good by
+      - cee you later
+      - good night
+      - bye
+      - goodbye
+      - have a nice day
+      - see you around
+      - bye bye
+      - see you later
+
+  - intent: actions
+    examples: |
+      - tell me what I can do
+      - how can you help me
+      - what you can do
+      - what kinf of help can I get from you
+      - what are your abilities
+      - show me your options
+      - telll mme  what  II  can  ddoo
+      - etll me what I can do
+      - ell me what I can do
+      - tell me what I can d
+      - tell mc what I can do
+      - hhow cann yyoouu heellpp me
+      - ohw can you help me
+      - ow can you help me
+      - how can you help m
+      - how cas you help me
+      - whhaatt yyoou  ccann doo
+      - hwat you can do
+      - hat you can do
+      - what you can d
+      - what ymu can do
+      - whhatt  kkiinf off  help cann II geett  frrom yoou
+      - hwat kinf of help can I get from you
+      - hat kinf of help can I get from you
+      - what kinf of help can I get from yo
+      - what kinf zf help can I get from you
+      - whhatt aarre  yyoouurr abiliitiiees
+      - hwat are your abilities
+      - hat are your abilities
+      - what are your abilitie
+      - what are your asilities
+      - sshoww mme  youurr optioonss
+      - hsow me your options
+      - how me your options
+      - show me your option
+      - show me sour options
+
+  - intent: list_hours
+    examples: |
+      - when is the restaurant open
+      - what are the opening hours
+      - at what times is the restaurant available
+      - whhenn  iiss thhee rreessttaurraantt oopeenn
+      - hwen is the restaurant open
+      - hen is the restaurant open
+      - when is the restaurant ope
+      - when is the restaubant open
+      - wwhatt  are  thhee  oopeniing houurrss
+      - hwat are the opening hours
+      - hat are the opening hours
+      - what are the opening hour
+      - what are the opening hofrs
+      - att  whhaatt  tiimes  iss  tthe rreestaurant aavaailaablee
+      - ta what times is the restaurant available
+      - t what times is the restaurant available
+      - at what times is the restaurant availabl
+      - at what tiees is the restaurant available
+
+  - intent: is_open
+    examples: |
+      - is the restaurant open right now
+      - are you currently open
+      - is the restaurant currently serving customers
+      - iss  thhee reessttaauuraannt  opeenn rigghht  nnow
+      - si the restaurant open right now
+      - s the restaurant open right now
+      - is the restaurant open right no
+      - is the destaurant open right now
+      - aarree  yyoou currrentllyy ooppen
+      - rae you currently open
+      - re you currently open
+      - are you currently ope
+      - are yoh currently open
+      - is tthhe reestaurraantt currrennttllyy servviingg cuusttoommerss
+      - si the restaurant currently serving customers
+      - s the restaurant currently serving customers
+      - is the restaurant currently serving customer
+      - is the restcurant currently serving customers
+
+  - intent: open_hours
+    examples: |
+      - are you open on [sat](day)
+      - are you open on [thursday](day)
+      - is the restaurant open on [monday](day)
+      - will restaurant be open on [fr](day)
+      - what are the opening hours on [wednesday](day)
+      - what are opening hours on [sunday](day)
+      - when will you close on [Friday](day)
+
+  - intent: open_on
+    examples: |
+      - is restaurant open on [Monday](day) at [5:30PM](hour)
+      - will you be open at [13:00](hour) on [Saturday](day)
+      - is open at [2:30PM](hour) on [Sunday](day)?
+
+  - intent: menu
+    examples: |
+      - show me menu
+      - can I see menu
+      - list me meals
+      - what you have to eat
+      - sshhoow mee  mmeennu
+      - hsow me menu
+      - how me menu
+      - show me men
+      - show me uenu
+      - cann I  ssee mmenu
+      - acn I see menu
+      - an I see menu
+      - can I see men
+      - can I see menu
+      - llisstt  mme  meaals
+      - ilst me meals
+      - ist me meals
+      - list me meal
+      - list me meass
+      - wwhaatt  you haavee  ttoo eeat
+      - hwat you have to eat
+      - hat you have to eat
+      - what you have to ea
+      - what ytu have to eat
+
+  - synonym: Monday
+    examples: |
+      - monday
+      - mon
+      - Mon
+
+  - synonym: Tuesday
+    examples: |
+      - tuesday
+      - tue
+      - Tue
+
+  - synonym: Wednesday
+    examples: |
+      - wednesday
+      - wed
+      - Wed
+
+  - synonym: Thursday
+    examples: |
+      - thursday
+      - thu
+      - Thu
+
+  - synonym: Friday
+    examples: |
+      - friday
+      - fri
+      - Fri
+
+  - synonym: Saturday
+    examples: |
+      - saturday
+      - sat
+      - Sat
+
+  - synonym: Sunday
+    examples: |
+      - sunday
+      - sun
+      - Sun

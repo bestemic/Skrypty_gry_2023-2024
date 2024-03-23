@@ -1,0 +1,16 @@
+version: "3.1"
+
+stories:
+  - story: welcome and say goodby
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - story: welcome and show possibilities
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: actions
+      - action: utter_actions

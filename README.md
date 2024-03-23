@@ -21,16 +21,16 @@ Kod: [zadanie1](zadanie1/)
 
 ### Zadanie 2 Czatbot
 
-✅ 0.0 - write a simple generator, to create the training dataset with some common typos and language mistakes
+✅ 0.0 - write a simple generator, to create the training dataset with some common typos and language mistakes - [commit](https://github.com/bestemic/Skrypty_gry_2023-2024/commit/a36e11315aee0c73643c3b16007aa3656d41a61b)
 
 ❌ 3.0 - a chatbot with the trained ability to handle at least 3 ways to phrase those intents
 
-❌ 3.5 - information about opening hours and menu items should be fetched from the configuration file
+✅ 3.5 - information about opening hours and menu items should be fetched from the configuration file
 
 ❌ 4.0 - chatbot needs to process the order and confirm purchased meals, as well as additional requests
 
 ❌ 4.5 - chatbot needs to confirm when the meal will be available as a pick-up in the restaurant
 
 ❌ 5.0 - chatbot should ask and confirm the delivery address instead of pick-up option
-Ś
+
 Kod: [zadanie2](zadanie2/)
