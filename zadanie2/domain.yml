@@ -15,7 +15,7 @@ intents:
   - confirm
   - reject_delivery
   - approve_delivery
-  - adress
+  - address
 
 actions:
   - action_list_hours

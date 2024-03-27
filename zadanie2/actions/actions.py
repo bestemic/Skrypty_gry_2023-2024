@@ -121,6 +121,7 @@ class ActionOrder(Action):
             if item in menu:
                 order_summary.append(f"{item}")
                 dispatcher.utter_message(text="Adding to order")
+                dispatcher.utter_message(text="Something else? If no please confirm order")
                 return [SlotSet("item", None), SlotSet("order", order_summary)]
             else:
                 dispatcher.utter_message(text=f"We don't have {item} in menu.")
@@ -143,6 +144,7 @@ class ActionExtraOrder(Action):
             if item in menu:
                 order_summary.append(f"{item} {keyword} {extra_item}")
                 dispatcher.utter_message(text="Adding to order")
+                dispatcher.utter_message(text="Something else? If no please confirm order")
                 return [SlotSet("item", None), SlotSet("order", order_summary), SlotSet("extra_keyword", None), SlotSet("extra_item", None)]
             else:
                 dispatcher.utter_message(text=f"We don't have {item} in menu.")

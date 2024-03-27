@@ -200,7 +200,7 @@ nlu:
       - not really
       - no, i will pick up
 
-  - intent: adress
+  - intent: address
     examples: |
       - my address is [Łojasiewiczan 11](address)
       - deliver to [Grota Roweckiego 123](address)
