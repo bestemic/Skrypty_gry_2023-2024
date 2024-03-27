@@ -9,6 +9,10 @@ intents:
   - open_hours
   - open_on
   - menu
+  - order
+  - extra_order
+  - show_order
+  - confirm
 
 actions:
   - action_list_hours
@@ -16,10 +20,17 @@ actions:
   - action_open_hours
   - action_open_on
   - action_menu
+  - action_order
+  - action_extra_order
+  - action_show_order
+  - action_confirm
 
 entities:
   - day
   - hour
+  - item
+  - extra_keyword
+  - extra_item
 
 slots:
   day:
@@ -34,6 +45,28 @@ slots:
     mappings:
       - type: from_entity
         entity: hour
+  item:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: item
+  extra_keyword:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: extra_keyword
+  extra_item:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: extra_item
+  order:
+    type: list
+    mappings:
+      - type: custom
 
 responses:
   utter_greet:

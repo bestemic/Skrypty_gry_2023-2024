@@ -25,11 +25,11 @@ Kod: [zadanie1](zadanie1/)
 
 ❌ 3.0 - a chatbot with the trained ability to handle at least 3 ways to phrase those intents
 
-✅ 3.5 - information about opening hours and menu items should be fetched from the configuration file
+✅ 3.5 - information about opening hours and menu items should be fetched from the configuration file - [commit](https://github.com/bestemic/Skrypty_gry_2023-2024/commit/690514541fba11da86d7fdc7b3233d311166a4e7)
 
-❌ 4.0 - chatbot needs to process the order and confirm purchased meals, as well as additional requests
+✅ 4.0 - chatbot needs to process the order and confirm purchased meals, as well as additional requests
 
-❌ 4.5 - chatbot needs to confirm when the meal will be available as a pick-up in the restaurant
+✅ 4.5 - chatbot needs to confirm when the meal will be available as a pick-up in the restaurant
 
 ❌ 5.0 - chatbot should ask and confirm the delivery address instead of pick-up option
 

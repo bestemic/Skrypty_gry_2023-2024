@@ -154,6 +154,38 @@ nlu:
       - what you have to ea
       - what ytu have to eat
 
+  - intent: order
+    examples: |
+      - i would like to order a [Burger](item)
+      - add a [Pizza](item) to my order
+      - one [Hot-dog](item) please
+      - i want [Hot-dog](item)
+      - can I order [Pizza](item)
+      - [Lasagne](item) please
+      - i'd like to get [Spaghetti Carbonara](item)
+
+  - intent: extra_order
+    examples: |
+      - i would like to order a [Burger](item) but [without](extra_keyword) [onions](extra_item)
+      - add a [Pizza](item) to my order [with](extra_keyword) [mushrooms](extra_item)
+      - can I order [Pizza](item) but [no extra](extra_keyword) [mushrooms](extra_item)
+      - [Lasagne](item) please [with extra](extra_keyword) [cheese](extra_item)
+      - i'd like to get [Spaghetti Carbonara](item) but [without](extra_keyword) [ketchup](extra_item)
+
+  - intent: show_order
+    examples: |
+      - show my my order
+      - show order
+      - can I see my order
+      - list what i ordered
+
+  - intent: confirm
+    examples: |
+      - confirm order
+      - that will be all
+      - that's all for me.
+      - confirmed
+
   - synonym: Monday
     examples: |
       - monday

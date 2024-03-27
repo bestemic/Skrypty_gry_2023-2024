@@ -2,6 +2,7 @@ from typing import Any, Text, Dict, List
 
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
+from rasa_sdk.events import SlotSet
 import json
 from datetime import datetime
 
@@ -104,3 +105,97 @@ class ActionMenu(Action):
                 
             dispatcher.utter_message(text=message)
         return []
+    
+    
+class ActionOrder(Action):
+
+    def name(self) -> Text:
+        return "action_order"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        with open('data/menu.json') as file:
+            menu = [menu_item["name"] for menu_item in json.load(file)["items"]]
+            item = tracker.get_slot("item")
+            order_summary = tracker.get_slot("order") or []
+            
+            if item in menu:
+                order_summary.append(f"{item}")
+                dispatcher.utter_message(text="Adding to order")
+                return [SlotSet("item", None), SlotSet("order", order_summary)]
+            else:
+                dispatcher.utter_message(text=f"We don't have {item} in menu.")
+                return [SlotSet("item", None)]
+            
+            
+class ActionExtraOrder(Action):
+
+    def name(self) -> Text:
+        return "action_extra_order"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        with open('data/menu.json') as file:
+            menu = [menu_item["name"] for menu_item in json.load(file)["items"]]
+            item = tracker.get_slot("item")
+            keyword = tracker.get_slot("extra_keyword")
+            extra_item = tracker.get_slot("extra_item")
+            order_summary = tracker.get_slot("order") or []
+            
+            if item in menu:
+                order_summary.append(f"{item} {keyword} {extra_item}")
+                dispatcher.utter_message(text="Adding to order")
+                return [SlotSet("item", None), SlotSet("order", order_summary), SlotSet("extra_keyword", None), SlotSet("extra_item", None)]
+            else:
+                dispatcher.utter_message(text=f"We don't have {item} in menu.")
+                return [SlotSet("item", None), SlotSet("extra_keyword", None), SlotSet("extra_item", None)]
+
+            
+class ActionShowOrder(Action):
+
+    def name(self) -> Text:
+        return "action_show_order"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        order_summary = tracker.get_slot("order")
+
+        if not order_summary:
+            dispatcher.utter_message("You don't order anything.")
+        else:
+            message = "This is your order: \n"
+            for item in order_summary:
+                message += f"  {item}\n"                
+            dispatcher.utter_message(text=message)
+        return []
+    
+    
+class ActionConfirm(Action):
+
+    def name(self) -> Text:
+        return "action_confirm"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        with open('data/menu.json') as file:
+            menu = json.load(file)["items"]
+            
+            order_summary = tracker.get_slot("order")
+            if not order_summary or len(order_summary) == 0:
+                dispatcher.utter_message("Empty order, add something")
+                return []
+            
+            time = 0
+            price = 0
+            
+            for order in order_summary:
+                for dish in menu:
+                    if dish["name"] == order.split()[0].lower().capitalize():
+                        time += dish["preparation_time"]
+                        price += dish["price"]
+
+            message = "Order: \n"
+            for item in order_summary:
+                message += f"  {item}\n"   
+                             
+            dispatcher.utter_message(text=message)
+            dispatcher.utter_message(f"Order will be available for pick-up in {time} hours")
+            dispatcher.utter_message(f"Price equal: {price}")
+            
+            return [SlotSet("order", None)]
