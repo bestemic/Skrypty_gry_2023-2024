@@ -23,7 +23,7 @@ Kod: [zadanie1](zadanie1/)
 
 ✅ 0.0 - write a simple generator, to create the training dataset with some common typos and language mistakes - [commit](https://github.com/bestemic/Skrypty_gry_2023-2024/commit/a36e11315aee0c73643c3b16007aa3656d41a61b)
 
-✅ 3.0 - a chatbot with the trained ability to handle at least 3 ways to phrase those intents
+✅ 3.0 - a chatbot with the trained ability to handle at least 3 ways to phrase those intents - [commit](https://github.com/bestemic/Skrypty_gry_2023-2024/commit/e7580160e8290d8eda78830636c18d2acf9fdf9d)
 
 ✅ 3.5 - information about opening hours and menu items should be fetched from the configuration file - [commit](https://github.com/bestemic/Skrypty_gry_2023-2024/commit/690514541fba11da86d7fdc7b3233d311166a4e7)
 
