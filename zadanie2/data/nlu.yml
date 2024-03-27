@@ -186,6 +186,27 @@ nlu:
       - that's all for me.
       - confirmed
 
+  - intent: approve_delivery
+    examples: |
+      - yes
+      - y
+      - yeah
+      - yeas, please
+
+  - intent: reject_delivery
+    examples: |
+      - no
+      - n
+      - not really
+      - no, i will pick up
+
+  - intent: adress
+    examples: |
+      - my address is [Łojasiewiczan 11](address)
+      - deliver to [Grota Roweckiego 123](address)
+      - address for delivery is [Stradom 12/4](address)
+      - you can ship to [Wąska 124](address)
+
   - synonym: Monday
     examples: |
       - monday

@@ -46,11 +46,6 @@ rules:
       - intent: extra_order
       - action: action_extra_order
 
-  - rule: Confirm order anytime user asks
-    steps:
-      - intent: confirm
-      - action: action_confirm
-
   - rule: Show order anytime user asks
     steps:
       - intent: show_order

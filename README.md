@@ -27,10 +27,10 @@ Kod: [zadanie1](zadanie1/)
 
 ✅ 3.5 - information about opening hours and menu items should be fetched from the configuration file - [commit](https://github.com/bestemic/Skrypty_gry_2023-2024/commit/690514541fba11da86d7fdc7b3233d311166a4e7)
 
-✅ 4.0 - chatbot needs to process the order and confirm purchased meals, as well as additional requests
+✅ 4.0 - chatbot needs to process the order and confirm purchased meals, as well as additional requests - [commit](https://github.com/bestemic/Skrypty_gry_2023-2024/commit/7a06f12d2f61135ae6882a0d389ca798cde9ebb3)
 
-✅ 4.5 - chatbot needs to confirm when the meal will be available as a pick-up in the restaurant
+✅ 4.5 - chatbot needs to confirm when the meal will be available as a pick-up in the restaurant - [commit](https://github.com/bestemic/Skrypty_gry_2023-2024/commit/7a06f12d2f61135ae6882a0d389ca798cde9ebb3)
 
-❌ 5.0 - chatbot should ask and confirm the delivery address instead of pick-up option
+✅ 5.0 - chatbot should ask and confirm the delivery address instead of pick-up option
 
 Kod: [zadanie2](zadanie2/)

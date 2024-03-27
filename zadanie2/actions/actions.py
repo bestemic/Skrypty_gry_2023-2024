@@ -199,3 +199,18 @@ class ActionConfirm(Action):
             dispatcher.utter_message(f"Price equal: {price}")
             
             return [SlotSet("order", None)]
+        
+        
+class ActionAddress(Action):
+
+    def name(self) -> Text:
+        return "action_address"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        address = tracker.get_slot("address")
+
+        if not address:
+            dispatcher.utter_message(text="Sorry. Something get wrong. You can pick-up your food.")
+        else:
+            dispatcher.utter_message(f"Your order will be delivered to {address}")
+        return []

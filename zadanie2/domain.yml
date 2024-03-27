@@ -13,6 +13,9 @@ intents:
   - extra_order
   - show_order
   - confirm
+  - reject_delivery
+  - approve_delivery
+  - adress
 
 actions:
   - action_list_hours
@@ -24,6 +27,7 @@ actions:
   - action_extra_order
   - action_show_order
   - action_confirm
+  - action_address
 
 entities:
   - day
@@ -31,6 +35,7 @@ entities:
   - item
   - extra_keyword
   - extra_item
+  - address
 
 slots:
   day:
@@ -67,6 +72,12 @@ slots:
     type: list
     mappings:
       - type: custom
+  address:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: address
 
 responses:
   utter_greet:
@@ -101,6 +112,19 @@ responses:
         - Showing our menu
         - Placing an order
         - Customizing your order with additional requests
+
+  utter_ask_delivery:
+    - text: "Do you want delivery?"
+    - text: "Do you prefer delivery to your home?"
+    - text: "Are you want to request free delivery to your house?"
+
+  utter_reject_delivery:
+    - text: "Ok, waiting"
+    - text: "Sure, we will wait for you."
+
+  utter_address:
+    - text: "Provide your address"
+    - text: "To complete provide adress"
 
 session_config:
   session_expiration_time: 60
