@@ -34,3 +34,17 @@ Kod: [zadanie1](zadanie1/)
 ✅ 5.0 - chatbot should ask and confirm the delivery address instead of pick-up option - [commit](https://github.com/bestemic/Skrypty_gry_2023-2024/commit/9f3b404188d10695aa4c2a741abaace3df359180)
 
 Kod: [zadanie2](zadanie2/)
+
+### Zadanie 3 Sklep w ReactJS + NodeJS
+
+✅ 3.0 aplikacja ma podstawowe endpointy w NodeJS (np. Express) do produktów i kategorii
+
+✅ 3.5 dane zapisywanie są w bazie danych po stronie NodeJS
+
+❌ 4.0 Axios wykorzystany do wywołań
+
+❌ 4.5 Opcja koszyka i płatności działa na React Hook
+
+❌ 5.0 Konfiguracja CORS po stronie NodeJS + konfiguracja po stronie ReactJS
+
+Kod: [zadanie3](zadanie3/)
