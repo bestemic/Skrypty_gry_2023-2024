@@ -37,14 +37,14 @@ Kod: [zadanie2](zadanie2/)
 
 ### Zadanie 3 Sklep w ReactJS + NodeJS
 
-✅ 3.0 aplikacja ma podstawowe endpointy w NodeJS (np. Express) do produktów i kategorii
+✅ 3.0 aplikacja ma podstawowe endpointy w NodeJS (np. Express) do produktów i kategorii - [commit](https://github.com/bestemic/Skrypty_gry_2023-2024/commit/ffd7d3fc39d261028e44626691069658684330bb)
 
-✅ 3.5 dane zapisywanie są w bazie danych po stronie NodeJS
+✅ 3.5 dane zapisywanie są w bazie danych po stronie NodeJS - [commit](https://github.com/bestemic/Skrypty_gry_2023-2024/commit/ffd7d3fc39d261028e44626691069658684330bb)
 
-❌ 4.0 Axios wykorzystany do wywołań
+✅ 4.0 Axios wykorzystany do wywołań
 
 ❌ 4.5 Opcja koszyka i płatności działa na React Hook
 
-❌ 5.0 Konfiguracja CORS po stronie NodeJS + konfiguracja po stronie ReactJS
+✅ 5.0 Konfiguracja CORS po stronie NodeJS + konfiguracja po stronie ReactJS
 
 Kod: [zadanie3](zadanie3/)
