@@ -41,10 +41,10 @@ Kod: [zadanie2](zadanie2/)
 
 ✅ 3.5 dane zapisywanie są w bazie danych po stronie NodeJS - [commit](https://github.com/bestemic/Skrypty_gry_2023-2024/commit/ffd7d3fc39d261028e44626691069658684330bb)
 
-✅ 4.0 Axios wykorzystany do wywołań
+✅ 4.0 Axios wykorzystany do wywołań - [commit](https://github.com/bestemic/Skrypty_gry_2023-2024/commit/a572780a45c83f9964fbb1cd2c7b4b5e491312ab)
 
-❌ 4.5 Opcja koszyka i płatności działa na React Hook
+✅ 4.5 Opcja koszyka i płatności działa na React Hook
 
-✅ 5.0 Konfiguracja CORS po stronie NodeJS + konfiguracja po stronie ReactJS
+✅ 5.0 Konfiguracja CORS po stronie NodeJS + konfiguracja po stronie ReactJS - [commit](https://github.com/bestemic/Skrypty_gry_2023-2024/commit/a572780a45c83f9964fbb1cd2c7b4b5e491312ab)
 
 Kod: [zadanie3](zadanie3/)

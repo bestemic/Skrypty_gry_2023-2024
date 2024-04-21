@@ -8,6 +8,7 @@ const cors = require('cors');
 
 const categoriesRouter = require('./api/v1/routes/categories');
 const {productsRouter} = require('./api/v1/routes/products');
+const paymentRouter = require('./api/v1/routes/payments');
 
 
 const app = express();
@@ -29,5 +30,6 @@ const api_path_v1 = '/api/v1';
 
 app.use(api_path_v1 + '/categories', categoriesRouter);
 app.use(api_path_v1 + '/products', productsRouter);
+app.use(api_path_v1 + '/payments', paymentRouter);
 
 module.exports = app;
