@@ -43,7 +43,7 @@ Kod: [zadanie2](zadanie2/)
 
 ✅ 4.0 Axios wykorzystany do wywołań - [commit](https://github.com/bestemic/Skrypty_gry_2023-2024/commit/a572780a45c83f9964fbb1cd2c7b4b5e491312ab)
 
-✅ 4.5 Opcja koszyka i płatności działa na React Hook
+✅ 4.5 Opcja koszyka i płatności działa na React Hook - [commit](https://github.com/bestemic/Skrypty_gry_2023-2024/commit/97320644ed738f517cb2fe113cd553d945e5d468)
 
 ✅ 5.0 Konfiguracja CORS po stronie NodeJS + konfiguracja po stronie ReactJS - [commit](https://github.com/bestemic/Skrypty_gry_2023-2024/commit/a572780a45c83f9964fbb1cd2c7b4b5e491312ab)
 
