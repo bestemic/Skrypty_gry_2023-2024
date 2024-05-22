@@ -48,3 +48,17 @@ Kod: [zadanie2](zadanie2/)
 ✅ 5.0 Konfiguracja CORS po stronie NodeJS + konfiguracja po stronie ReactJS - [commit](https://github.com/bestemic/Skrypty_gry_2023-2024/commit/a572780a45c83f9964fbb1cd2c7b4b5e491312ab)
 
 Kod: [zadanie3](zadanie3/)
+
+### Zadanie 4 Tetris w Lua
+
+✅ 3.0 Postawowa wersja dekstopowa z obsługą na klawiaturze - minimum 4 rodzaje klocków - [commit](https://github.com/bestemic/Skrypty_gry_2023-2024/commit/50380f09c9b99b688b637002802bd6ee8fd17b67)
+
+✅ 3.5 Zapis i odczyt gier
+
+❌ 4.0 Dodanie efektów dźwiękowych przy akcjach
+
+❌ 4.5 Dodanie animacji przy zbijaniu klocków
+
+❌ 5.0 Wersja na iOS lub Android z implementacją touch zamiast klawiatury
+
+Kod: [zadanie4](zadanie4/)

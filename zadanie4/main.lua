@@ -27,9 +27,11 @@ move_time = nil
 state = nil
 score = nil
 block = nil
+block_id = nil
 block_x = nil
 block_y = nil
 next_block = nil
+next_block_id = nil
 rotation = nil
 
 function love.load()
@@ -52,22 +54,20 @@ function love.draw()
 
     love.graphics.setBackgroundColor(love.math.colorFromBytes(BLACK))
 
-    if state == "GAME" then
-        love.graphics.setColor(love.math.colorFromBytes(RED))
-        for i = 1, 4 do
-            for j = 1, 4 do
-                if block[i][j] == 1 then
-                    love.graphics.rectangle("fill", (block_x + j - 1) * SIZE, (block_y + i - 1) * SIZE, SIZE, SIZE)
-                end
+    love.graphics.setColor(love.math.colorFromBytes(RED))
+    for i = 1, 4 do
+        for j = 1, 4 do
+            if block[i][j] == 1 then
+                love.graphics.rectangle("fill", (block_x + j - 1) * SIZE, (block_y + i - 1) * SIZE, SIZE, SIZE)
             end
         end
+    end
 
-        love.graphics.setColor(love.math.colorFromBytes(RED))
-        for i = 1, 4 do
-            for j = 1, 4 do
-                if next_block[i][j] == 1 then
-                    love.graphics.rectangle("fill", margin_x + (j + 2) * SIZE, (i + 2) * SIZE, SIZE, SIZE)
-                end
+    love.graphics.setColor(love.math.colorFromBytes(RED))
+    for i = 1, 4 do
+        for j = 1, 4 do
+            if next_block[i][j] == 1 then
+                love.graphics.rectangle("fill", margin_x + (j + 2) * SIZE, (i + 2) * SIZE, SIZE, SIZE)
             end
         end
     end
@@ -110,7 +110,7 @@ function love.draw()
     if state == "MENU" then
         love.graphics.print("L - LOAD", margin_x + 2.5 * SIZE, 12 * SIZE)
     end
-    if state == "PAUSE" then
+    if state == "PAUSED" then
         love.graphics.print("K - SAVE", margin_x + 2.5 * SIZE, 12 * SIZE)
     end
 
@@ -154,11 +154,11 @@ function love.keypressed(key, scancode, isrepeat)
     end
 
     if scancode == "l" and state == "MENU" then
-        -- TODO load save
+        load()
     end
 
     if scancode == "k" and state == "PAUSED" then
-        -- TODO save game
+        save()
     end
 
     if scancode == "p" and state == "GAME" then
@@ -298,7 +298,7 @@ function check_game_over()
 end
 
 function reduce_lines()
-    for i = HEIGHT - 2, 1, -1 do
+    for i = 1, HEIGHT - 2 do
         local is_full = true
         for j = 1, WIDTH - 2 do
             if board[i][j] ~= "BLOCK" then
@@ -329,4 +329,67 @@ function shift_lines_down(start_line)
     for j = 1, WIDTH - 2 do
         board[1][j] = "FREE"
     end
+end
+
+function save()
+    local gameStateString = ""
+
+    for i = 0, HEIGHT - 1 do
+        for j = 0, WIDTH - 1 do
+            gameStateString = gameStateString .. board[i][j] .. ","
+        end
+    end
+
+    gameStateString = gameStateString .. block_id .. ","
+    gameStateString = gameStateString .. next_block_id .. ","
+    gameStateString = gameStateString .. block_x .. ","
+    gameStateString = gameStateString .. block_y .. ","
+    gameStateString = gameStateString .. rotation .. ","
+    gameStateString = gameStateString .. score
+
+    local file = io.open("save.txt", "w")
+    file:write(gameStateString)
+    file:close()
+    init()
+end
+
+function load()
+    local file = io.open("save.txt", "r")
+
+    if not file then
+        return
+    end
+
+    local gameStateString = file:read("*all")
+    file:close()
+
+    local parts = {}
+    for part in gameStateString:gmatch("[^,]+") do
+        table.insert(parts, part)
+    end
+
+    local index = 1
+    for i = 0, HEIGHT - 1 do
+        for j = 0, WIDTH - 1 do
+            board[i][j] = parts[index]
+            index = index + 1
+        end
+    end
+
+    block_id = tonumber(parts[index])
+    index = index + 1
+    next_block_id = tonumber(parts[index])
+    index = index + 1
+    block_x = tonumber(parts[index])
+    index = index + 1
+    block_y = tonumber(parts[index])
+    index = index + 1
+    rotation = tonumber(parts[index])
+    index = index + 1
+    score = tonumber(parts[index])
+
+    block = blocks[block_id][rotation]
+    next_block = blocks[next_block_id][rotation]
+
+    state = "PAUSED"
 end
