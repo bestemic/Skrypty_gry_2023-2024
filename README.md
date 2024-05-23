@@ -57,8 +57,20 @@ Kod: [zadanie3](zadanie3/)
 
 ✅ 4.0 Dodanie efektów dźwiękowych przy akcjach - [commit](https://github.com/bestemic/Skrypty_gry_2023-2024/commit/b2fc921905f05e902bd976312b5a5d053e05357f)
 
-✅  4.5 Dodanie animacji przy zbijaniu klocków - [commit]()
+✅  4.5 Dodanie animacji przy zbijaniu klocków - [commit](https://github.com/bestemic/Skrypty_gry_2023-2024/commit/8fc27691634a2b6ef8d170c77672cc1ca9aec06e)
 
 ❌ 5.0 Wersja na iOS lub Android z implementacją touch zamiast klawiatury
 
 Kod: [zadanie4](zadanie4/)
+
+### Zadanie 5 Crawler w Ruby
+
+❌ 3.0 Należy pobrać podstawowe dane o produktach (tytuł, cena), dowolna kategoria
+
+❌ 3.5 Należy pobrać podstawowe dane o produktach wg słów kluczowych
+
+❌ 4.0 Należy rozszerzyć dane o produktach o dane szczegółowe widoczne tylko na podstronie o produkcie
+
+❌ 4.5 Należy zapisać linki do produktów
+
+❌ 5.0 Dane należy zapisać w bazie danych np. SQLite via Sequel
