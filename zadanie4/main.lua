@@ -33,9 +33,17 @@ block_y = nil
 next_block = nil
 next_block_id = nil
 rotation = nil
+clear_line_sound = nil
+game_over_sound = nil
+collision_sound = nil
+click_sound = nil
 
 function love.load()
     math.randomseed(os.time())
+    clear_line_sound = love.audio.newSource("sound/clear.wav", "static")
+    game_over_sound = love.audio.newSource("sound/game_over.mp3", "static")
+    collision_sound = love.audio.newSource("sound/collision.mp3", "static")
+    click_sound = love.audio.newSource("sound/click.mp3", "static")
     init()
 end
 
@@ -133,11 +141,13 @@ function love.keypressed(key, scancode, isrepeat)
     end
 
     if scancode == "s" and state == "LOST" then
+        click_sound:play()
         init()
         state = "GAME"
     end
 
     if scancode == "s" and (state == "PAUSED" or state == "MENU") then
+        click_sound:play()
         state = "GAME"
     end
 
@@ -154,14 +164,17 @@ function love.keypressed(key, scancode, isrepeat)
     end
 
     if scancode == "l" and state == "MENU" then
+        click_sound:play()
         load()
     end
 
     if scancode == "k" and state == "PAUSED" then
+        click_sound:play()
         save()
     end
 
     if scancode == "p" and state == "GAME" then
+        click_sound:play()
         state = "PAUSED"
     end
 
@@ -219,6 +232,7 @@ function move_down()
         block_y = block_y + 1
     else
         add_block()
+        collision_sound:play()
         reduce_lines()
         generate_block()
     end
@@ -289,6 +303,7 @@ function check_game_over()
             if block[i][j] == 1 then
                 local board_y = block_y + i - 1
                 if board_y == 0 then
+                    game_over_sound:play()
                     return true
                 end
             end
@@ -307,6 +322,7 @@ function reduce_lines()
             end
         end
         if is_full then
+            clear_line_sound:play()
             remove_line(i)
             shift_lines_down(i)
             score = score + 1

@@ -53,9 +53,9 @@ Kod: [zadanie3](zadanie3/)
 
 ✅ 3.0 Postawowa wersja dekstopowa z obsługą na klawiaturze - minimum 4 rodzaje klocków - [commit](https://github.com/bestemic/Skrypty_gry_2023-2024/commit/50380f09c9b99b688b637002802bd6ee8fd17b67)
 
-✅ 3.5 Zapis i odczyt gier
+✅ 3.5 Zapis i odczyt gier - [commit](https://github.com/bestemic/Skrypty_gry_2023-2024/commit/057427bb4134e547130c5f0f12d1ea4207101426)
 
-❌ 4.0 Dodanie efektów dźwiękowych przy akcjach
+✅ 4.0 Dodanie efektów dźwiękowych przy akcjach
 
 ❌ 4.5 Dodanie animacji przy zbijaniu klocków
 
