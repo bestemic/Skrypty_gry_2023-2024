@@ -69,9 +69,9 @@ Kod: [zadanie4](zadanie4/)
 
 ✅ 3.5 Należy pobrać podstawowe dane o produktach wg słów kluczowych - [commit](https://github.com/bestemic/Skrypty_gry_2023-2024/commit/c725f9e2d227d7f80d098f95fce905af5df42443)
 
-❌ 4.0 Należy rozszerzyć dane o produktach o dane szczegółowe widoczne tylko na podstronie o produkcie
+✅ 4.0 Należy rozszerzyć dane o produktach o dane szczegółowe widoczne tylko na podstronie o produkcie - [commit]()
 
-✅ 4.5 Należy zapisać linki do produktów - [commit]()
+✅ 4.5 Należy zapisać linki do produktów - [commit](https://github.com/bestemic/Skrypty_gry_2023-2024/commit/f462956be785d924ac6085774be0c8b43f5587d0)
 
 ❌ 5.0 Dane należy zapisać w bazie danych np. SQLite via Sequel
 
