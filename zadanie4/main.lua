@@ -1,6 +1,5 @@
 WHITE = {255, 255, 255}
 BLACK = {0, 0, 0}
-GREEN = {0, 255, 0}
 RED = {255, 0, 0}
 BLUE = {0, 0, 255}
 GRAY = {125, 125, 125}
@@ -37,6 +36,9 @@ clear_line_sound = nil
 game_over_sound = nil
 collision_sound = nil
 click_sound = nil
+lines_to_animate = nil
+animation_time = nil
+animation_state = nil
 
 function love.load()
     math.randomseed(os.time())
@@ -53,6 +55,23 @@ function love.update(dt)
         if time > move_time then
             move_down()
             time = 0
+        end
+    elseif state == "ANIMATION" then
+        animation_time = animation_time + dt
+        if animation_time <= 0.2 then
+            animation_state = 1
+        elseif animation_time > 0.2 and animation_time <= 0.4 then
+            animation_state = 0
+        elseif animation_time > 0.4 and animation_time <= 0.6 then
+            animation_state = 1
+        elseif animation_time > 0.6 and animation_time <= 0.8 then
+            animation_state = 0
+        elseif animation_time > 0.8 then
+            finalize_line_removal()
+            animation_time = 0
+            animation_state = 0
+            move_time = 0.5
+            state = "GAME"
         end
     end
 end
@@ -88,6 +107,15 @@ function love.draw()
             elseif board[i][j] == "WALL" then
                 love.graphics.setColor(love.math.colorFromBytes(GRAY))
                 love.graphics.rectangle("fill", j * SIZE, i * SIZE, SIZE, SIZE)
+            end
+        end
+    end
+
+    if state == "ANIMATION" and animation_state == 1 then
+        love.graphics.setColor(love.math.colorFromBytes(BLUE))
+        for _, line in ipairs(lines_to_animate) do
+            for j = 1, WIDTH - 2 do
+                love.graphics.rectangle("fill", j * SIZE, line * SIZE, SIZE, SIZE)
             end
         end
     end
@@ -203,6 +231,7 @@ function init()
     end
 
     time = 0
+    animation_time = 0
     move_time = 0.5
     state = "MENU"
     score = 0
@@ -313,6 +342,7 @@ function check_game_over()
 end
 
 function reduce_lines()
+    lines_to_animate = {}
     for i = 1, HEIGHT - 2 do
         local is_full = true
         for j = 1, WIDTH - 2 do
@@ -322,11 +352,13 @@ function reduce_lines()
             end
         end
         if is_full then
-            clear_line_sound:play()
-            remove_line(i)
-            shift_lines_down(i)
-            score = score + 1
+            table.insert(lines_to_animate, i)
         end
+    end
+
+    if #lines_to_animate > 0 then
+        clear_line_sound:play()
+        state = "ANIMATION"
     end
 end
 
@@ -345,6 +377,15 @@ function shift_lines_down(start_line)
     for j = 1, WIDTH - 2 do
         board[1][j] = "FREE"
     end
+end
+
+function finalize_line_removal()
+    for _, line in ipairs(lines_to_animate) do
+        remove_line(line)
+        shift_lines_down(line)
+    end
+    score = score + #lines_to_animate
+    lines_to_animate = {}
 end
 
 function save()

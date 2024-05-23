@@ -57,7 +57,7 @@ Kod: [zadanie3](zadanie3/)
 
 ✅ 4.0 Dodanie efektów dźwiękowych przy akcjach - [commit](https://github.com/bestemic/Skrypty_gry_2023-2024/commit/b2fc921905f05e902bd976312b5a5d053e05357f)
 
-❌ 4.5 Dodanie animacji przy zbijaniu klocków
+✅  4.5 Dodanie animacji przy zbijaniu klocków - [commit]()
 
 ❌ 5.0 Wersja na iOS lub Android z implementacją touch zamiast klawiatury
 
