@@ -55,7 +55,7 @@ Kod: [zadanie3](zadanie3/)
 
 ✅ 3.5 Zapis i odczyt gier - [commit](https://github.com/bestemic/Skrypty_gry_2023-2024/commit/057427bb4134e547130c5f0f12d1ea4207101426)
 
-✅ 4.0 Dodanie efektów dźwiękowych przy akcjach
+✅ 4.0 Dodanie efektów dźwiękowych przy akcjach - [commit](https://github.com/bestemic/Skrypty_gry_2023-2024/commit/b2fc921905f05e902bd976312b5a5d053e05357f)
 
 ❌ 4.5 Dodanie animacji przy zbijaniu klocków
 
