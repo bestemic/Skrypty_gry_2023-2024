@@ -1,10 +1,26 @@
 require "nokogiri"
 require 'open-uri'
 require 'json'  
+require 'sequel'
+
 
 BASE_URL = "https://www.x-kom.pl"
+DB = Sequel.sqlite('products.db')
 
-Product = Struct.new(:title, :price, :link, :manufacturer_name, :manufacturer_id, :xcom_id, :rating, :is_available, :color) do
+DB.create_table? :products do
+  primary_key :id
+  String :title
+  String :price
+  String :link
+  String :manufacturer_name
+  String :manufacturer_id
+  String :xcom_id
+  Float :rating
+  Boolean :is_available
+  String :color
+end
+
+class Product < Sequel::Model(:products)
     def to_json(*options)
         to_h.to_json(*options)
     end
@@ -36,7 +52,10 @@ def extract_data(page)
         price = product.css(".sc-fzqMAW.gHIvzZ.sc-bbhnby-0.jaYAiy").text
         link = BASE_URL + product.at_css("a")["href"]
         details = get_details(link)
-        products.append(Product.new(title, price, link, details.manufacturer_name, details.manufacturer_id, details.xcom_id, details.rating, details.is_available, details.color))
+        products << { title: title, price: price, link: link, manufacturer_name: details.manufacturer_name,
+            manufacturer_id: details.manufacturer_id, xcom_id: details.xcom_id, rating: details.rating,
+            is_available: details.is_available, color: details.color 
+        }
     end
     return products
 end
@@ -67,4 +86,8 @@ results_page = get_results(keywords)
 check_results(results_page)
 
 products = extract_data(results_page)
-puts JSON.pretty_generate(products)
+products.each do |product|
+    Product.create(product)
+end
+
+puts "Saved #{products.length} products to database."
