@@ -65,13 +65,13 @@ Kod: [zadanie4](zadanie4/)
 
 ### Zadanie 5 Crawler w Ruby
 
-✅ 3.0 Należy pobrać podstawowe dane o produktach (tytuł, cena), dowolna kategoria - [commit]()
+✅ 3.0 Należy pobrać podstawowe dane o produktach (tytuł, cena), dowolna kategoria - [commit](https://github.com/bestemic/Skrypty_gry_2023-2024/commit/c725f9e2d227d7f80d098f95fce905af5df42443)
 
-✅ 3.5 Należy pobrać podstawowe dane o produktach wg słów kluczowych - [commit]()
+✅ 3.5 Należy pobrać podstawowe dane o produktach wg słów kluczowych - [commit](https://github.com/bestemic/Skrypty_gry_2023-2024/commit/c725f9e2d227d7f80d098f95fce905af5df42443)
 
 ❌ 4.0 Należy rozszerzyć dane o produktach o dane szczegółowe widoczne tylko na podstronie o produkcie
 
-❌ 4.5 Należy zapisać linki do produktów
+✅ 4.5 Należy zapisać linki do produktów - [commit]()
 
 ❌ 5.0 Dane należy zapisać w bazie danych np. SQLite via Sequel
 
