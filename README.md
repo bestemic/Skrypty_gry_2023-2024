@@ -73,6 +73,6 @@ Kod: [zadanie4](zadanie4/)
 
 ✅ 4.5 Należy zapisać linki do produktów - [commit](https://github.com/bestemic/Skrypty_gry_2023-2024/commit/f462956be785d924ac6085774be0c8b43f5587d0)
 
-✅ 5.0 Dane należy zapisać w bazie danych np. SQLite via Sequel - [commit]()
+✅ 5.0 Dane należy zapisać w bazie danych np. SQLite via Sequel - [commit](https://github.com/bestemic/Skrypty_gry_2023-2024/commit/07f86ace392c730327a09f6caf945aa6ecea1e99)
 
 Kod: [zadanie5](zadanie5/)
